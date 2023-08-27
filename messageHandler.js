@@ -1,5 +1,4 @@
-// Single Responsibility: Handle different types of messages
-function handleIncomingMessage(req, res){
+const handleIncomingMessage= (incomingMessage) => {
     let responseMessage;
   
     if (incomingMessage.toLowerCase() === 'hello') {
@@ -13,6 +12,5 @@ function handleIncomingMessage(req, res){
      return responseMessage;
   };
 
-  module.exports = {
-    handleIncomingMessage
-  }
+  module.exports = handleIncomingMessage;
+  

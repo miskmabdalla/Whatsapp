@@ -10,6 +10,4 @@ const webhookController = async (req, res) => {
   res.status(200).send(responseMessage);  
 };
 
-module.exports = {
-    webhookController
-}
+module.exports = webhookController;
