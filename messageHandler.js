@@ -1,4 +1,4 @@
-const handleIncomingMessage= (incomingMessage) => {
+const handleIncomingMessage = (incomingMessage) => {
     let responseMessage;
   
     if (incomingMessage.toLowerCase() === 'hello') {

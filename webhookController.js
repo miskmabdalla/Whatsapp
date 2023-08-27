@@ -1,4 +1,5 @@
 const handleIncomingMessage = require('./messageHandler');
+const sendMessage = require('./sendMessage');
 
 // Single Responsibility: Handle webhook POST requests
 const webhookController = async (req, res) => {
@@ -6,8 +7,7 @@ const webhookController = async (req, res) => {
 
   const incomingMessage = req.body.messages[0][0].text.body;
   const responseMessage =  await handleIncomingMessage(incomingMessage);
-  // Usage
-  sendMessage('ejO4wSSx2ugfKGfOjRkgfg', responseMessage);
+  await sendMessage('ejO4wSSx2ugfKGfOjRkgfg', responseMessage);
   console.log(responseMessage);  
 };
 
