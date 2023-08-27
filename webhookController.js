@@ -7,7 +7,8 @@ const webhookController = async (req, res) => {
   const incomingMessage = req.body.messages[0][0].text.body;
   const responseMessage =  await handleIncomingMessage(incomingMessage);
 
-  res.status(200).send(responseMessage);  
+  res.status(200).send(responseMessage);
+  console.log(responseMessage);  
 };
 
 module.exports = webhookController;
