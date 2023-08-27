@@ -6,8 +6,8 @@ const webhookController = async (req, res) => {
 
   const incomingMessage = req.body.messages[0][0].text.body;
   const responseMessage =  await handleIncomingMessage(incomingMessage);
-
-  res.status(200).send(responseMessage);
+  // Usage
+  sendMessage('ejO4wSSx2ugfKGfOjRkgfg', responseMessage);
   console.log(responseMessage);  
 };
 
