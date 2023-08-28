@@ -26,14 +26,17 @@ const handleIncomingMessage = async (userId, incomingMessage) => {
             else if (incomingMessage.contains('points')) {
                 responseMessage = 'You chose to check your points, please enter your ID'; //could also use their userID
                 userStates[userId] = 'CHECK_POINTS';
-            } 
+            }
+            else {
+                responseMessage = 'I don\'t understand, type \'back\' to return to the start';
+            }
             break;
         case 'VERIFY_PRODUCT':
             if (incomingMessage === 'valid_number') {
                 responseMessage = 'Your product is valid';
             }
             else {
-                responseMessage = 'Your product is not valid';
+                responseMessage = 'Your product is not valid, you are returning to the start';
             }
             userStates[userId] = 'INIT';
             break;
@@ -42,14 +45,13 @@ const handleIncomingMessage = async (userId, incomingMessage) => {
                 responseMessage = 'You have 100 points';
             }
             else {
-                responseMessage = 'Invalid ID, type \'back\' to return to the start';
+                responseMessage = 'Invalid ID, you are returning to the start';
             }
             userStates[userId] = 'INIT';
             break;
         default:
-            responseMessage = 'I don\'t understand, type \'back\' to return to the start';
+            responseMessage = 'I don\'t understand';
       }
-    responseMessage = 'I don\'t understand, type \'back\' to return to the start';
 
 
 
