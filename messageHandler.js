@@ -47,8 +47,9 @@ const handleIncomingMessage = async (userId, incomingMessage) => {
             userStates[userId] = 'INIT';
             break;
         default:
-          responseMessage = 'I don\'t understand, type \'back\' to return to the start';
+            responseMessage = 'I don\'t understand, type \'back\' to return to the start';
       }
+    responseMessage = 'I don\'t understand, type \'back\' to return to the start';
 
 
 
