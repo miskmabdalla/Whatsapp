@@ -3,7 +3,7 @@ const { use } = require("express/lib/application");
 //use db in the future to handle user states
 const userStates = {};
 
-const handleIncomingMessage = async (userId, incomingMessage) => {
+const handleIncomingMessage = (userId, incomingMessage) => {
     // Initialize user state if not exists
     if (!userStates[userId]) {
         userStates[userId] = 'INIT';
@@ -19,11 +19,11 @@ const handleIncomingMessage = async (userId, incomingMessage) => {
             userStates[userId] = 'ASKED_SERVICE';
             break;
         case 'ASKED_SERVICE':
-            if (incomingMessage.contains('verify')) {
+            if (incomingMessage.includes('verify')) {
                 responseMessage = 'You chose to verify your product, please enter your product ID';
                 userStates[userId] = 'VERIFY_PRODUCT';
             }
-            else if (incomingMessage.contains('points')) {
+            else if (incomingMessage.includes('points')) {
                 responseMessage = 'You chose to check your points, please enter your ID'; //could also use their userID
                 userStates[userId] = 'CHECK_POINTS';
             }
@@ -52,17 +52,6 @@ const handleIncomingMessage = async (userId, incomingMessage) => {
         default:
             responseMessage = 'I don\'t understand';
       }
-
-
-
-
-    // if (incomingMessage.toLowerCase() === 'hello') {
-    //   responseMessage = 'Hi';
-    // } else if (incomingMessage.toLowerCase() === 'goodbye') {
-    //   responseMessage = 'Bye';
-    // } else {
-    //   responseMessage = 'I don\'t understand';
-    // }
   
      return responseMessage;
   };
